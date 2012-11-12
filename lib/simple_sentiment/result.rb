@@ -1,4 +1,4 @@
-module Sentiment
+module SimpleSentiment
 	class Result
 		attr_reader :score, :comparative, :tokens, :words
 		def initialize( score, tokens, words )

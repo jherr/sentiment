@@ -1,8 +1,8 @@
-require 'sentiment/version'
-require 'sentiment/dictionary'
-require 'sentiment/result'
+require 'simple_sentiment/version'
+require 'simple_sentiment/dictionary'
+require 'simple_sentiment/result'
 
-module Sentiment
+module SimpleSentiment
 	@@doubles = nil
 
 	def self.sentiment( str )
@@ -10,7 +10,7 @@ module Sentiment
 
 		if ( @@doubles == nil )
 			@@doubles = []
-			Sentiment::WORD_LIST.each { |word,val|
+			SimpleSentiment::WORD_LIST.each { |word,val|
 				next unless( word =~ /\s/ )
 				@@doubles.push( word )
 			}
@@ -23,7 +23,7 @@ module Sentiment
 		@@doubles.each { |dbl|
 			next unless ( str =~ /#{dbl}/ )
 			str.gsub!( /#{dbl}/ ) {
-				score += Sentiment::WORD_LIST[ dbl ]
+				score += SimpleSentiment::WORD_LIST[ dbl ]
 				words.push( dbl )
 				dbl_tokens.push( dbl )
 				""
@@ -32,7 +32,7 @@ module Sentiment
 
 		tokens = tokenize( str )
 		tokens.each { |word|
-			val = Sentiment::WORD_LIST[ word ]
+			val = SimpleSentiment::WORD_LIST[ word ]
 			next unless ( val )
 			score += val
 			words.push( word )
