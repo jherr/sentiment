@@ -1,4 +1,4 @@
-# Sentiment
+# Simple Sentiment
 
 Simple Sentiment Analysis
 
@@ -29,6 +29,8 @@ This is a port of:
 https://github.com/thisandagain/sentiment
 
 Which is largely the same algorithm for node.js. This version includes one refinement which is some extra code to handle a few two-word cases that appear in the dictionary.
+
+The difference between this gem and the 'sentiment' gem is that it does not use a web service. On the downside the simple sentimate gem doesn't support multiple languages and, most likely, has a much simpler algorithm for deducing sentiment.
 
 ## Contributing
 
